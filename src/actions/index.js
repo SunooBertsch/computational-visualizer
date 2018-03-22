@@ -1,8 +1,8 @@
 export const ADD_BLOCK = "add_block";
 
-export const fetchUser = (index) => async dispatch => {
+export const addBlock = index => async dispatch => {
   let newIndex = index + 1;
-  console.log(newIndex)
+  console.log(newIndex);
   dispatch({
     type: ADD_BLOCK,
     payload: newIndex

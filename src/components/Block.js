@@ -10,7 +10,12 @@ class Block extends Component {
   render() {
     return (
       <div
-        style={{ height: "5px", width: "5px", "background-color": "black", margin: "auto" }}
+        style={{
+          height: "5px",
+          width: "5px",
+          "background-color": "black",
+          margin: "auto"
+        }}
       />
     );
   }

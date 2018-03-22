@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { blockReducer } from "./blockReducer";
+import blockReducer from "./blockReducer";
 
 export default combineReducers({
   blockCount: blockReducer
