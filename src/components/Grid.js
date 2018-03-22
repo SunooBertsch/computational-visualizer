@@ -6,21 +6,25 @@ import { connect } from "react-redux";
 class Grid extends Component {
   constructor(props) {
     super(props);
-    this.createRow = this.createRow.bind(this);
+    this.state = {
+      array: [<Block />]
+    };
+    this.createRows = this.createRows.bind(this);
   }
 
-  createRow() {
-    if(this.props.blockCount.index < 100){
-    this.props.addBlock(this.props.blockCount.index);
-  }
-    console.log("BLOCK", this.props.blockCount.index);
-    let array = [<Block />];
-
-    return <div>{array}</div>;
+  createRows() {
+    let array = this.state.array;
+    if (this.props.blockCount.index < 1000) {
+      this.props.addBlock(this.props.blockCount.index);
+      array.push(<Block />);
+      this.setState({ array: array });
+    }
+    console.log(array);
+    setTimeout(return <div>{array}</div>);
   }
 
   render() {
-    return <div>{this.createRow()}</div>;
+    return <div>{this.createRows()}</div>;
   }
 }
 
