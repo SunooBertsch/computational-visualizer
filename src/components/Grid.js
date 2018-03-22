@@ -10,10 +10,12 @@ class Grid extends Component {
   }
 
   createRow() {
-    this.props.addBlock(this.props.block);
+    if(this.props.blockCount.index < 100){
+    this.props.addBlock(this.props.blockCount.index);
+  }
+    console.log("BLOCK", this.props.blockCount.index);
+    let array = [<Block />];
 
-    console.log("BLOCK", this.props.block);
-    let array = [<Block />, <Block />, <Block />, <Block />];
     return <div>{array}</div>;
   }
 
@@ -22,9 +24,9 @@ class Grid extends Component {
   }
 }
 
-function mapStateToProps({ block }) {
+function mapStateToProps({ blockCount }) {
   return {
-    block
+    blockCount
   };
 }
 
