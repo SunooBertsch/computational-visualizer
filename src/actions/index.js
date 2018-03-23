@@ -4,8 +4,11 @@ export const addBlock = index => async dispatch => {
   console.log("addBlock ran, index is ", index);
   let newIndex = index + 1;
   console.log(newIndex);
-  dispatch({
-    type: ADD_BLOCK,
-    payload: newIndex
-  });
+  setTimeout(
+    dispatch({
+      type: ADD_BLOCK,
+      payload: newIndex
+    }),
+    100
+  );
 };

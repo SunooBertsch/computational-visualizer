@@ -7,24 +7,19 @@ class Grid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      array: [<Block />]
+      array: [<Block key={0} />]
     };
-    this.createRows = this.createRows.bind(this);
   }
+  componentDidMount() {}
 
-  createRows() {
+  render() {
     let array = this.state.array;
     if (this.props.blockCount.index < 1000) {
       this.props.addBlock(this.props.blockCount.index);
-      array.push(<Block />);
-      this.setState({ array: array });
+      array.push(<Block key={this.props.blockCount.index} />);
+      this.setState({ ...array });
     }
-    console.log(array);
-    setTimeout(return <div>{array}</div>);
-  }
-
-  render() {
-    return <div>{this.createRows()}</div>;
+    return <div>{this.state.array}</div>;
   }
 }
 
