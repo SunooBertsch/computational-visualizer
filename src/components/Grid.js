@@ -10,15 +10,24 @@ class Grid extends Component {
       array: [<Block key={0} />]
     };
   }
-  componentDidMount() {}
+  componentDidMount(){
+    let array = this.state.array;
+      this.props.addBlock(this.props.blockCount.index);
+      array.push(<Block key={this.props.blockCount.index} />);
+      this.setState({ ...array });
+    
+  }
 
-  render() {
+  componentDidUpdate() {
     let array = this.state.array;
     if (this.props.blockCount.index < 1000) {
       this.props.addBlock(this.props.blockCount.index);
       array.push(<Block key={this.props.blockCount.index} />);
       this.setState({ ...array });
     }
+  }
+
+  render() {
     return <div>{this.state.array}</div>;
   }
 }
